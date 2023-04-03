@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Altezza Montagne</title>
+	<style>
+		input[type=text] {
+			padding: 10px;
+			margin-top: 10px;
+			font-size: 16px;
+			border: 2px solid red;
+			border-radius: 4px;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			text-align: left;
+			padding: 8px;
+		}
+		tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+
+		/* Media query for smartphones */
+		@media only screen and (max-width: 1200px) {
+			table, thead, tbody, th, td, tr {
+				display: block;
+			}
+			th {
+				text-align: center;
+			}
+			td {
+				text-align: left;
+				padding: 10px;
+				border: none;
+			}
+			tr {
+				margin-bottom: 20px;
+				border: 2px solid #ccc;
+				border-radius: 4px;
+			}
+			input[type=text] {
+			padding: 10px;
+			margin-top: 10px;
+			width: 100%;
+			height: 70px;
+			font-size: 32px;
+			border: 2px solid red;
+			border-radius: 4px;
+
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>Altezza Montagne</h1>
+	<input type="text" id="myInput" onkeyup="searchTable()" placeholder="Cerca il nome della vetta..">
+
+	<table id="myTable">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Altezza (m)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Monte Pelvoux</td>
+				<td>3946</td>
+			</tr>
+			<tr>
+				<td>Denali</td>
+				<td>6190</td>
+			</tr>
+			<tr>
+				<td>Grosslockner</td>
+				<td>3798</td>
+			</tr>
+			<tr>
+				<td>Monte Vinson</td>
+				<td>4892</td>
+			</tr>
+			<tr>
+				<td>Puncak Jaya</td>
+				<td>4884</td>
+			</tr>
+			<tr>
+				<td>Kangchenjunga</td>
+				<td>8586</td>
+			</tr>
+			<tr>
+				<td>Monte Everest</td>
+				<td>8848.86</td>
+			</tr>
+			<tr>
+				<td>Annapurna</td>
+				<td>8091</td>
+			</tr>
+			<tr>
+				<td>Lhotse</td>
+				<td>8516</td>
+			</tr>
+			<tr>
+				<td>Scaffel Pike</td>
+				<td>978</td>
+			</tr>
+			<tr>
+				<td>Grand Combin</td>
+				<td>4314</td>
+			</tr>
+			<tr>
+				<td>Monte Logan</td>
+				<td>5959</td>
+			</tr>
+			<tr>
+				<td>Monte Bianco</td>
+				<td>4807</td>
+			</tr>
+			<tr>
+				<td>Aoraki/Monte Cook</td>
+				<td>3724</td>
+			</tr>
+			<tr>
+				<td>Monte Kazbek</td>
+				<td>5034</td>
+			</tr>
+			<tr>
+				<td>Dychtau</td>
+				<td>5205</td>
+			</tr>
+			<tr>
+				<td>Tetnuldi</td>
+				<td>4858</td>
+			</tr>
+			<tr>
+				<td>M&#246;nch</td>
+				<td>4110</td>
+			</tr>
+			<tr>
+				<td>Monte Whitney</td>
+				<td>4421</td>
+			</tr>
+			<tr>
+				<td>Cervino</td>
+				<td>4478</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script>
+		function searchTable() {
+			var input, filter, table, tr, td, i, txtValue;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+		}
+	</script>
+</body>
+</html>
